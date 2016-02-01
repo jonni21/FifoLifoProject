@@ -5,13 +5,9 @@ package com.pirates;
  */
 public class Main {
 
-
     public static void main(String[] args) {
 
         Menu menu = new Menu();
         menu.start();
-
-//        WindowsGUI gui = new WindowsGUI();
-//        gui.startGUI();
     }
 }
