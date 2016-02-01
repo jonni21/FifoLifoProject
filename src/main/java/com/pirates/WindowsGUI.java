@@ -149,7 +149,7 @@ public class WindowsGUI {
                     area.append(String.valueOf(f) + "\n");
                 }else{
                     break;
-                }
+                }queue.clear();
             }
         }
     }
