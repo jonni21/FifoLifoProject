@@ -51,7 +51,7 @@ public class FIFO extends AbstractQueue {
                     }
                     if (arrNew[i] == null) {
                         arrNew[i] = element;
-                        getSet(arrNew);
+                        setArr(arrNew);
                         break;
                     }
                 }
