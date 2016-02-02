@@ -6,9 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
  * Created by Wrong on 27.01.2016.
- *
  */
 public class WindowsGUI {
 
@@ -126,7 +124,7 @@ public class WindowsGUI {
         public void actionPerformed(ActionEvent e) {
             input = inputText.getText();
             queue.push(input);
-            if(e.getSource() == buttonAdd) {
+            if (e.getSource() == buttonAdd) {
                 inputText.setText(null);
             }
         }
@@ -145,15 +143,16 @@ public class WindowsGUI {
             }
         }
     }
+
     private class PeekElement implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == buttonClear) {
                 area.setText(null);
             }
-            if(queue.size() == 0){
+            if (queue.size() == 0) {
                 area.append("Add elements in the array\n");
-            }else {
+            } else {
                 area.setText(queue.peek() + "\n");
             }
         }
@@ -162,13 +161,13 @@ public class WindowsGUI {
     private class PrintStack implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource() == buttonPrint){
+            if (e.getSource() == buttonPrint) {
                 area.setText(null);
             }
-            for(String f : queue.getArr()){
-                if(f != null) {
+            for (String f : queue.getArr()) {
+                if (f != null) {
                     area.append(String.valueOf(f) + "\n");
-                }else{
+                } else {
                     break;
                 }
             }
