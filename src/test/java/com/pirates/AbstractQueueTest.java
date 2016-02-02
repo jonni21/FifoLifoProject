@@ -15,7 +15,7 @@ public class AbstractQueueTest {
     public void testPrint() throws Exception {
         fifo.push("aa");
         fifo.push("bb");
-        String[] actual = fifo.arr;
+        String[] actual = fifo.getArr();
         String[] expected = {"aa", "bb", null, null, null, null, null, null, null, null};
         Assert.assertArrayEquals(expected, actual);
     }
@@ -32,7 +32,7 @@ public class AbstractQueueTest {
         fifo.push("aaa");
         fifo.push("bbb");
         fifo.clear();
-        String[] actual = fifo.arr;
+        String[] actual = fifo.getArr();
         String[] expected = {null, null, null, null, null, null, null, null, null, null};
         Assert.assertArrayEquals(expected, actual);
     }

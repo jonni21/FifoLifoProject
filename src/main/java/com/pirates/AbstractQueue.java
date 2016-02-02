@@ -4,8 +4,15 @@ package com.pirates;
  * Created by Wrong on 29.01.2016.
  */
 public abstract class AbstractQueue {
-    String[] arr = new String[10];
 
+    private String[] arr = new String[10];
+
+    public String[] getArr(){
+        return this.arr;
+    }
+    protected void setArr(String[] arr1){
+        this.arr = arr1;
+    }
     public void print() {
         for (String anArr : arr) {
             if (anArr == null) break;

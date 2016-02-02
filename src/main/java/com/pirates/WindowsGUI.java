@@ -22,6 +22,9 @@ public class WindowsGUI {
     ButtonGroup buttonGroupRadio;
     JButton buttonPrint;
     JButton buttonAdd;
+    JButton buttonClear;
+    JButton buttonPop;
+
     AbstractQueue queue = new LIFO();
 
     String input;
@@ -55,7 +58,7 @@ public class WindowsGUI {
         buttonAdd.addActionListener(new AddElement());
 
 
-        JButton buttonPop = new JButton("Pop");
+        buttonPop = new JButton("Pop");
         buttonPop.addActionListener(new PopElement());
 
 
@@ -63,7 +66,7 @@ public class WindowsGUI {
         buttonPrint.addActionListener(new PrintStack());
 
 
-        JButton buttonClear = new JButton("Peek");
+        buttonClear = new JButton("Peek");
         buttonClear.addActionListener(new PeekElement());
 
 
@@ -132,14 +135,27 @@ public class WindowsGUI {
     private class PopElement implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            area.append(queue.pop() + "\n");
+            if (e.getSource() == buttonPop) {
+                area.setText(null);
+            }
+            if (queue.size() == 0) {
+                area.append("Add elements in the array\n");
+            } else {
+                area.append(queue.pop() + "\n");
+            }
         }
     }
     private class PeekElement implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            area.setText(queue.peek()+"\n");
-
+            if (e.getSource() == buttonClear) {
+                area.setText(null);
+            }
+            if(queue.size() == 0){
+                area.append("Add elements in the array\n");
+            }else {
+                area.setText(queue.peek() + "\n");
+            }
         }
     }
 
@@ -149,7 +165,7 @@ public class WindowsGUI {
             if(e.getSource() == buttonPrint){
                 area.setText(null);
             }
-            for(String f : queue.arr){
+            for(String f : queue.getArr()){
                 if(f != null) {
                     area.append(String.valueOf(f) + "\n");
                 }else{

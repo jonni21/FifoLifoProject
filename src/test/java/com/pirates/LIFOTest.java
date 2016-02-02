@@ -19,7 +19,7 @@ public class LIFOTest {
         lifo.push("bbb");
         lifo.push("ccc");
         Assert.assertEquals("ccc", lifo.pop());
-        String[] actual = lifo.arr;
+        String[] actual = lifo.getArr();
         String[] expected = {"aaa", "bbb", null, null, null, null, null, null, null, null};
         Assert.assertArrayEquals(expected, actual);
     }
@@ -36,7 +36,7 @@ public class LIFOTest {
     public void testPush() throws Exception {
         lifo.push("aaa");
         lifo.push("bbb");
-        String[] actual = lifo.arr;
+        String[] actual = lifo.getArr();
         String[] expected = {"aaa", "bbb", null, null, null, null, null, null, null, null};
         Assert.assertArrayEquals(expected, actual);
     }

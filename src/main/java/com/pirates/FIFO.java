@@ -9,11 +9,11 @@ public class FIFO extends AbstractQueue {
     //Удаляет последний добавленый элемент
     @Override
     public String pop() {
-        String firstElement = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (i != arr.length - 1) {
-                arr[i] = arr[i + 1];
-            } else arr[i] = null;
+        String firstElement = getArr()[0];
+        for (int i = 0; i < getArr().length; i++) {
+            if (i != getArr().length - 1) {
+                getArr()[i] = getArr()[i + 1];
+            } else getArr()[i] = null;
         }
         if (firstElement != null) {
             return firstElement;
@@ -25,36 +25,37 @@ public class FIFO extends AbstractQueue {
     //Возвращает элемент, находящийся в голове очереди, не удаляя его
     @Override
     public String peek() {
-        if (arr[0] == null) {
+        if (getArr()[0] == null) {
             return "Очередь пуста";
         } else {
-            return arr[0];
+            return getArr()[0];
         }
     }
 
     //Добавление элемента в массив и расширяет массив при переполнении
     @Override
     public void push(String element) {
-        if (size() < arr.length) {
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] == null) {
-                    arr[i] = element;
-                    break;
+        if (!("").equals(element)) {
+            if (size() < getArr().length) {
+                for (int i = 0; i < getArr().length; i++) {
+                    if (getArr()[i] == null) {
+                        getArr()[i] = element;
+                        break;
+                    }
                 }
-            }
-        } else {
-            String[] arrNew = new String[(arr.length * 2)];
-            for (int i = 0; i < arrNew.length; i++) {
-                if (i < arr.length) {
-                    arrNew[i] = arr[i];
-                }
-                if (arrNew[i] == null) {
-                    arrNew[i] = element;
-                    arr = arrNew;
-                    break;
+            } else {
+                String[] arrNew = new String[(getArr().length * 2)];
+                for (int i = 0; i < arrNew.length; i++) {
+                    if (i < getArr().length) {
+                        arrNew[i] = getArr()[i];
+                    }
+                    if (arrNew[i] == null) {
+                        arrNew[i] = element;
+                        setArr(arrNew);
+                        break;
+                    }
                 }
             }
         }
     }
 }
-

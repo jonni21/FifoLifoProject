@@ -19,7 +19,7 @@ public class FIFOTest {
         fifo.push("bbb");
         fifo.push("ccc");
         Assert.assertEquals("aaa", fifo.pop());
-        String[] actual = fifo.arr;
+        String[] actual = fifo.getArr();
         String[] expected = {"bbb", "ccc", null, null, null, null, null, null, null, null};
 
         Assert.assertArrayEquals(expected, actual);
@@ -30,7 +30,7 @@ public class FIFOTest {
         fifo.push("aaa");
         fifo.push("bbb");
         fifo.push("ccc");
-        String[] actual = fifo.arr;
+        String[] actual = fifo.getArr();
         Assert.assertEquals(actual[0], fifo.peek());
     }
 
@@ -39,7 +39,7 @@ public class FIFOTest {
 
         fifo.push("aaa");
         fifo.push("bbb");
-        String[] actual = fifo.arr;
+        String[] actual = fifo.getArr();
         String[] expected = {"aaa", "bbb", null, null, null, null, null, null, null, null};
         Assert.assertArrayEquals(expected, actual);
     }
