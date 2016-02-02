@@ -7,12 +7,14 @@ public abstract class AbstractQueue {
 
     private String[] arr = new String[10];
 
-    public String[] getArr(){
+    public String[] getArr() {
         return this.arr;
     }
-    protected void setArr(String[] arr1){
+
+    protected void setArr(String[] arr1) {
         this.arr = arr1;
     }
+
     public void print() {
         for (String anArr : arr) {
             if (anArr == null) break;

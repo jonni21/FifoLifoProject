@@ -15,7 +15,6 @@ public class AbstractQueueTest {
     }
 
     @Test
-
     public void testPrint() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
