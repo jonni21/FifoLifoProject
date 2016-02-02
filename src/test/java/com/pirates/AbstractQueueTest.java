@@ -3,6 +3,9 @@ package com.pirates;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class AbstractQueueTest {
     private FIFO fifo;
 
@@ -12,12 +15,17 @@ public class AbstractQueueTest {
     }
 
     @Test
+
     public void testPrint() throws Exception {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
         fifo.push("aa");
         fifo.push("bb");
-        String[] actual = fifo.getArr();
-        String[] expected = {"aa", "bb", null, null, null, null, null, null, null, null};
-        Assert.assertArrayEquals(expected, actual);
+        fifo.print();
+
+        String expectedOutput = "aa\r\nbb\r\n";
+        Assert.assertEquals(outContent.toString(), expectedOutput);
     }
 
     @Test
