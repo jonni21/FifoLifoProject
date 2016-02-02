@@ -25,9 +25,9 @@ public class LIFO extends AbstractQueue {
         if (size() == 0) {
             System.out.println("Add elements in the array");
         } else {
-            for (int i = arr.length - 1; i >= 0; i--) {
-                if (arr[i] != null) {
-                    lastElement = arr[i];
+            for (int i = getArr().length - 1; i >= 0; i--) {
+                if (getArr()[i] != null) {
+                    lastElement = getArr()[i];
                     break;
                 }
             }
