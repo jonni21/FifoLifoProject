@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  */
 public class WindowsGUI {
 
-    JPanel panel;
+    private JPanel panel;
     JTextArea area;
     JTextField inputText;
     JScrollPane jScrollPane;
@@ -33,7 +33,7 @@ public class WindowsGUI {
         panel.setLayout(new FlowLayout());
 
         //Команда для завершения программы при закрытии окна
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
         Font font = new Font("AppleGothic", Font.BOLD, 14);
@@ -48,6 +48,7 @@ public class WindowsGUI {
         area.setRows(10);
         jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(area);
+        area.setEnabled(false);
 
         // Кнопки
         buttonAdd = new JButton("Push");
@@ -137,19 +138,23 @@ public class WindowsGUI {
     private class PeekElement implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            area.append(queue.peek()+"\n");
+            area.setText(queue.peek()+"\n");
+
         }
     }
 
     private class PrintStack implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == buttonPrint){
+                area.setText(null);
+            }
             for(String f : queue.arr){
                 if(f != null) {
                     area.append(String.valueOf(f) + "\n");
                 }else{
                     break;
-                }queue.clear();
+                }
             }
         }
     }

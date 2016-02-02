@@ -5,7 +5,12 @@ package com.pirates;
  */
 public abstract class AbstractQueue {
     String[] arr = new String[10];
-
+    public String[] getArr(){
+        return this.arr;
+    }
+    public void setArr(String[] arr1){
+        this.arr = arr1;
+    }
     public void print() {
         for (String anArr : arr) {
             if (anArr == null) break;
